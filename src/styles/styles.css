@@ -24,11 +24,19 @@ a {
 .search-bar {
   background-color: #E9E9E9;
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 9px 20px;
   display: flex;
   align-items: center;
   gap: 0.9rem;
   color: #575757;
+  border: 2px solid transparent;
+  transition: all 0.15s ease-in;
+}
+.search-bar:focus-within {
+  border: 2px solid rgba(252, 187, 20, 0.7);
+}
+.search-bar:focus-within .icon {
+  color: #FCBB14;
 }
 .search-bar input {
   border: none;
@@ -44,7 +52,7 @@ a {
   outline: none;
   background-color: #FCBB14;
   border-radius: 6px;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   color: #fff;
   font-family: inherit;
   font-weight: 700;
@@ -71,6 +79,7 @@ a {
 }
 .navbar .container .logo {
   margin-right: 4.8rem;
+  cursor: pointer;
 }
 .navbar .container .search-bar {
   flex: 1;

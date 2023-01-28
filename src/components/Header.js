@@ -18,7 +18,9 @@ const Header = () => {
   return (
     <nav className='navbar'>
         <div className="container">
-            <div className="logo">App logo here</div>
+            <div className="logo">
+                <Link to='/'>App logo here</Link>
+            </div>
             <SearchBar />
             <Button btnText='Publier' BtnIcon={BsPlus} />
             <ul className='icons-list'>
