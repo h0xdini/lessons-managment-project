@@ -8,6 +8,12 @@ import AppContext from '../store'
 const PostAnnounce = () => {
     const appContext = useContext(AppContext)
 
+    const handleSubmit = () => {
+        if (appContext.category && appContext.cours && appContext.wilaya && appContext.commune && appContext.tarif && appContext.phone && appContext.email && appContext.description) {
+            // submission backend logic goes here
+        }
+    }
+
   return (
     <article className='post'>
         <div className="container">
@@ -67,7 +73,9 @@ const PostAnnounce = () => {
         </div>
 
         <div className="btn-container">
-            <Button btnText='Publier' />
+            <div className="inner-btn-container" style={{width: 'fit-content'}} onClick={handleSubmit}>
+                <Button btnText='Publier' />
+            </div>
         </div>
     </article>
   )
