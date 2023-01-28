@@ -536,3 +536,220 @@ a {
         }
     }
 }
+
+.discussions {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // overflow: hidden;
+
+    main {
+        flex: 1;
+        padding: 2.6rem 0;
+        display: grid;
+        place-items: center;
+
+        .container {
+            max-height: 700px;
+            display: flex;
+            flex-direction: column;
+
+            .main-discussions-body {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 2rem;
+                overflow: auto;
+                flex: 1;
+
+                .discussions-list {
+                    height: 100%;
+                    overflow: auto;
+                    padding-right: 1rem;
+                    
+                    &::-webkit-scrollbar {
+                        width: 6px;
+                    }
+                       
+                    &::-webkit-scrollbar-track {
+                        background: $light-gray-color;
+                    }
+                       
+                    &::-webkit-scrollbar-thumb {
+                        background-color: rgb(202, 202, 202);
+                        border-radius: 4px;
+                    }
+                }
+
+                .messaging {
+                    background: #fff;
+                    padding: 1.2rem 1.6rem;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba($main-gray-color, 0.1);
+                    border: 1px solid rgba($main-gray-color, 0.2);
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    
+                    header {
+                        display: flex;
+                        align-items: center;
+                        gap: 1.4rem;
+
+                        img {
+                            height: 70px;
+                            aspect-ratio: 1/1;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+
+                        .user-info {
+                            p {
+                                font-weight: 600;
+                                font-size: 1.1rem;
+                            }
+
+                            span {
+                                font-size: 0.9rem;
+                                font-weight: 500;
+                                color: $main-gray-color;
+                            }
+                        }
+                    }
+
+                    .messaging-body {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.4rem;
+                        margin-top: 1.6rem;
+
+                        article {
+                            border-radius: 4px;
+                            padding: 0.3rem 0.9rem;
+                            font-size: 0.85rem;
+                            font-weight: 500;
+                            max-width: 80%;
+                            
+                                &.sender {
+                                    color: #fff;
+                                    align-self: flex-end;
+                                    background-color: $main-secondary-color;
+                                }
+
+                                &.receiver {
+                                    align-self: flex-start;
+                                    background-color: $light-gray-color;
+                                    color: $main-gray-color;
+                                }
+                        }
+                    }
+
+                    .message-input {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.7rem;
+                        background-color: rgba($light-gray-color, 0.9);
+                        border: 1px solid rgba($main-gray-color, 0.2);
+                        color: $main-gray-color;
+                        padding: 0.4rem 1.4rem;
+                        border-radius: 6px;
+                        font-weight: 500;
+                        margin-top: 1.4rem;
+
+                            input {
+                                border: none;
+                                outline: none;
+                                background-color: transparent;
+                                font-family: inherit;
+                                flex: 1;
+                            }
+
+                            .icon {
+                                font-size: 1.2rem;
+                                cursor: pointer;
+                                color: rgba($main-gray-color, 0.9);
+
+                                &:hover {
+                                    color: #333;
+                                }
+                            }
+                    }
+                }
+            }
+
+            h1 {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                margin-bottom: 1.4rem;
+
+                &::after {
+                    content: '';
+                    flex: 1;
+                    height: 1px;
+                    background-color: rgba($main-gray-color, 0.3);
+                }
+            }
+        }
+    }
+}
+
+.message-card {
+    background-color: #fff;
+    padding: 1.2rem 1.4rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba($main-gray-color, 0.1);
+    transition: box-shadow 0.1s ease-out;
+    border: 1px solid rgba($main-gray-color, 0.2);
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0 0 14px rgba($main-gray-color, 0.2);
+    }
+
+    &:not(:last-of-type) {
+        margin-bottom: 1.1rem;
+    }
+
+    .new {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background-color: #0075ff;
+    }
+
+    header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        img {
+            height: 44px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .message-info {
+            p {
+                font-weight: 500;
+                font-size: 0.9rem;
+            }
+
+            span {
+                font-size: 0.85rem;
+                color: $main-gray-color;
+            }
+
+            .message-body {
+                margin-top: 0.5rem;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
