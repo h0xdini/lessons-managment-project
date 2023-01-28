@@ -33,7 +33,7 @@ a {
   transition: all 0.15s ease-in;
 }
 .search-bar:focus-within {
-  border: 2px solid rgba(252, 187, 20, 0.7);
+  border: 2px solid rgba(252, 187, 20, 0.6);
 }
 .search-bar:focus-within .icon {
   color: #FCBB14;
@@ -204,6 +204,10 @@ a {
   transform: translateY(-50%);
   padding: 0 6px;
   font-size: 0.8rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .dp-input ul {
   position: absolute;

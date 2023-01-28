@@ -14,6 +14,18 @@ const Input = ({label, arr, noChevron, textarea, wilayas, communes, placeHolder,
     const [tmpArr, setTmpArr] = useState([])
 
     useEffect(() => {
+        if (cours && appContext.category) {
+            if (appContext.category === 'primary school') {
+                appContext.activeCours(primarySchoolModules[0])
+            } else if (appContext.category === 'middle school') {
+                appContext.activeCours(middleSchoolModules[0])
+            } else if (appContext.category === 'high school') {
+                appContext.activeCours(highSchoolModules[0])
+            }
+        }
+    }, [appContext.category])
+
+    useEffect(() => {
         if (appContext.id) {
             const wilayaCommunes = wilays.find(item => item.id === appContext.id)
 
@@ -22,7 +34,7 @@ const Input = ({label, arr, noChevron, textarea, wilayas, communes, placeHolder,
                 appContext.activeCommune(wilayaCommunes.communes[0])
             }
         }
-    }, [appContext.id, wilayas, setTmpArr])
+    }, [appContext.id])
 
   return (
     <div className="dp-input" style={textarea ? {height: '180px'} : communes && !appContext.wilaya ? {pointerEvents: 'none', userSelect: 'none', opacity: '0.7'} : cours && !appContext.category ? {pointerEvents: 'none', userSelect: 'none', opacity: '0.7'} : {}} onClick={() => setOpen(!open)}>
