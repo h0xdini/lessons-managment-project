@@ -336,10 +336,41 @@ a {
   height: 140px;
   border-radius: 4px;
   border: 1px dashed rgba(87, 87, 87, 0.5);
-  display: grid;
+  display: flex;
   place-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
   position: relative;
   color: inherit;
+  padding: 0.5rem 1.2rem;
+}
+.image-select .img-container {
+  width: 100px;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.image-select .img-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.image-select .img-container .icon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: rgb(187, 187, 187);
+  display: none;
+}
+.image-select .img-container:hover {
+  opacity: 0.8;
+}
+.image-select .img-container:hover .icon {
+  display: block;
 }
 .image-select .title {
   position: absolute;

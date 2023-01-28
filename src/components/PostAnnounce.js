@@ -20,7 +20,7 @@ const PostAnnounce = () => {
                 <article>
                     <div className="double-form-control">
                         <Input label='Catégorie' arr={['primary school', 'middle school', 'high school']} category placeHolder={appContext.category} />
-                        <Input label='Cours' arr={['Maths', 'Physics', 'Science', 'English', 'French', 'German', 'Spanish']} cours placeHolder={appContext.cours} />
+                        <Input label='Cours' cours placeHolder={appContext.cours} />
                     </div>
 
                     <div className="double-form-control">

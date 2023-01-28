@@ -3,6 +3,10 @@ import { BiChevronDown } from 'react-icons/bi'
 import AppContext from '../store'
 import wilays from '../wilays'
 
+const primarySchoolModules = ['Maths', 'History', 'Geography', 'Arabic', 'French', 'English']
+const middleSchoolModules = ['Maths', 'Physics', 'Science', 'History & Geography', 'Arabic', 'French', 'English']
+const highSchoolModules = ['Maths', 'Physics', 'Science', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering' ,'History & Geography', 'Arabic', 'French', 'English', 'German', 'Spanish']
+
 const Input = ({label, arr, noChevron, textarea, wilayas, communes, placeHolder, category, cours, tarif, email, phone}) => {
     const appContext = useContext(AppContext)
     
@@ -21,7 +25,7 @@ const Input = ({label, arr, noChevron, textarea, wilayas, communes, placeHolder,
     }, [appContext.id, wilayas, setTmpArr])
 
   return (
-    <div className="dp-input" style={textarea ? {height: '180px'} : {}} onClick={() => setOpen(!open)}>
+    <div className="dp-input" style={textarea ? {height: '180px'} : communes && !appContext.wilaya ? {pointerEvents: 'none', userSelect: 'none', opacity: '0.7'} : cours && !appContext.category ? {pointerEvents: 'none', userSelect: 'none', opacity: '0.7'} : {}} onClick={() => setOpen(!open)}>
         {!textarea && noChevron ? (
             <input type="text" onChange={(e) => {
                 if (tarif) {
@@ -56,9 +60,17 @@ const Input = ({label, arr, noChevron, textarea, wilayas, communes, placeHolder,
                     )
                 })}
             </ul>
-        ) : open && arr && arr.length > 0 && !wilayas && !communes && !category && cours ? (
+        ) : open && !wilayas && !communes && !category && cours ? (
             <ul>
-                {arr.map((item, index) => {
+                {appContext.category === 'primary school' ? primarySchoolModules.map((item, index) => {
+                    return (
+                        <li key={index} onClick={() => appContext.activeCours(item)}>{item}</li>
+                    )
+                }) : appContext.category === 'middle school' ? middleSchoolModules.map((item, index) => {
+                    return (
+                        <li key={index} onClick={() => appContext.activeCours(item)}>{item}</li>
+                    )
+                }) : appContext.category === 'high school' && highSchoolModules.map((item, index) => {
                     return (
                         <li key={index} onClick={() => appContext.activeCours(item)}>{item}</li>
                     )
