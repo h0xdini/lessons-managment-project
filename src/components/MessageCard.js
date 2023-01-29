@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const MessageCard = ({ user, image, date, latestMessage, isRead }) => {
-  return (
-    <article className='message-card'>
+const MessageCard = ({ discussionId, user, image, date, latestMessage, isRead }) => {
+  const navigate = useNavigate()
+
+    return (
+    <article className='message-card' onClick={() => navigate(`/discussions/${discussionId}`)}>
         <header>
             <img src={image} alt='user_picture' />
 

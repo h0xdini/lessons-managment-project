@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Announce />} />
         <Route path="/discussions" element={<Discussion />} />
+        <Route path="/discussions/:id" element={<Discussion />} />
       </Routes>
     </Router>
   );

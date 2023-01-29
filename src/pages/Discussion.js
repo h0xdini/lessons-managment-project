@@ -51,10 +51,10 @@ const Discussion = () => {
 
                 <div className="main-discussions-body">
                     <div className="discussions-list">
-                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' />
-                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' />
-                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' isRead />
-                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' isRead />
+                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' discussionId={'1234'} />
+                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' discussionId={'5435'} />
+                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' isRead discussionId={'9847'} />
+                        <MessageCard user='Robert Helson' image='/k.jpeg' date='15 décembre 2022' latestMessage='Je suis intéressé par votre offre de cours' isRead discussionId={'3432'} />
                     </div>
 
                     <div className="messaging">
