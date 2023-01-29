@@ -451,6 +451,9 @@ a {
   .navbar button {
     display: none;
   }
+  .discussions main .container .main-discussions-body {
+    grid-template-columns: 1fr !important;
+  }
 }
 .discussions {
   height: 100vh;
