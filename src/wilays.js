@@ -1,7 +1,7 @@
 const wilays = [
     {
         "id": 1,
-        "name": "ADRAR",
+        "name": "ADRAR",    
         "communes": [ "Adrar", "Akabli", "Aougrout", "Aoulef", "Bordj badji mokhtar", "Bouda", "Charouine", "Deldoul", "Fenoughil", "In zghmir", "Ksar kaddour", "Metarfa", "Ouled ahmed timmi", "Ouled aissa", "Ouled said", "Reggane", "Sali", "Sebaa", "Talmin", "Tamantit", "Tamest", "Timekten", "Timiaouine", "Timimoun", "Tinerkouk", "Tit", "Tsabit", "Zaouiet kounta"]
     }, {
         "id": 2,

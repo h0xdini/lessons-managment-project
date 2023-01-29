@@ -475,6 +475,16 @@ a {
   overflow: auto;
   flex: 1;
 }
+.discussions main .container .main-discussions-body::-webkit-scrollbar {
+  width: 6px;
+}
+.discussions main .container .main-discussions-body::-webkit-scrollbar-track {
+  background: #E9E9E9;
+}
+.discussions main .container .main-discussions-body::-webkit-scrollbar-thumb {
+  background-color: rgb(202, 202, 202);
+  border-radius: 4px;
+}
 .discussions main .container .main-discussions-body .discussions-list {
   height: 100%;
   overflow: auto;
@@ -498,7 +508,9 @@ a {
   border: 1px solid rgba(87, 87, 87, 0.2);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: space-between;
+  max-height: 100%;
+  overflow: hidden;
 }
 .discussions main .container .main-discussions-body .messaging header {
   display: flex;
@@ -525,25 +537,43 @@ a {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 1.4rem;
   margin-top: 1.6rem;
+  max-height: 440px;
+  overflow: auto;
 }
-.discussions main .container .main-discussions-body .messaging .messaging-body article {
-  border-radius: 4px;
-  padding: 0.3rem 0.9rem;
-  font-size: 0.85rem;
-  font-weight: 500;
+.discussions main .container .main-discussions-body .messaging .messaging-body .message-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
   max-width: 80%;
 }
-.discussions main .container .main-discussions-body .messaging .messaging-body article.sender {
+.discussions main .container .main-discussions-body .messaging .messaging-body .message-container article {
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.discussions main .container .main-discussions-body .messaging .messaging-body .message-container.sender {
   color: #fff;
   align-self: flex-end;
+}
+.discussions main .container .main-discussions-body .messaging .messaging-body .message-container.sender article {
+  padding: 0.3rem 0.9rem;
   background-color: #FCBB14;
 }
-.discussions main .container .main-discussions-body .messaging .messaging-body article.receiver {
+.discussions main .container .main-discussions-body .messaging .messaging-body .message-container.receiver {
   align-self: flex-start;
-  background-color: #E9E9E9;
   color: #575757;
+}
+.discussions main .container .main-discussions-body .messaging .messaging-body .message-container.receiver article {
+  padding: 0.3rem 0.9rem;
+  background-color: #E9E9E9;
+}
+.discussions main .container .main-discussions-body .messaging .messaging-body .message-container img {
+  height: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
 }
 .discussions main .container .main-discussions-body .messaging .message-input {
   display: flex;
@@ -555,7 +585,7 @@ a {
   padding: 0.4rem 1.4rem;
   border-radius: 6px;
   font-weight: 500;
-  margin-top: 1.4rem;
+  margin-top: 1.6rem;
 }
 .discussions main .container .main-discussions-body .messaging .message-input input {
   border: none;

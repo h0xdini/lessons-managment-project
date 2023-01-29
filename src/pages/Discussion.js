@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'  
 import Header from '../components/Header'
 import MessageCard from '../components/MessageCard'
 import { BiSend } from 'react-icons/bi'
 
 const currentUserId = 1
+const contactUser = 2
 
-const dummyDiscussion = [
-    {
+const Discussion = () => {
+    const [message, setMessage] = useState('')
+
+    const [disc, setDisc] = useState([{
         sender: 1,
         receiver: 2,
         messageBody: 'hello there, how is everything?',
@@ -26,11 +29,18 @@ const dummyDiscussion = [
         sender: 2,
         receiver: 1,
         messageBody: 'well, not really, I have struggled a bit with the new database integration but it is fine',
-    },
-    
-]
+    },])
 
-const Discussion = () => {
+    const handleSendMessage = () => {
+        if (message) {
+            setDisc([...disc, {
+                sender: currentUserId,
+                receiver: contactUser,
+                messageBody: message,
+            }])
+        }
+    }
+
   return (
     <section className='discussions'>
         <Header />
@@ -62,18 +72,28 @@ const Discussion = () => {
                         </header>
 
                         <div className="messaging-body">
-                            {dummyDiscussion.map((item, index) => {
+                            {disc.map((item, index) => {
                                 return (
-                                    <article className={currentUserId === item.sender ? 'sender' : 'receiver'} key={index}>
-                                        {item.messageBody}
-                                    </article>
+                                    <div className={currentUserId === item.sender ? 'sender message-container' : 'receiver message-container'}>
+                                        {item.sender !== currentUserId && (
+                                            <img src='/k.jpeg' alt='sender_image' />
+                                        )}
+                                        <article key={index}>
+                                            {item.messageBody}
+                                        </article>
+                                    </div>
                                 )
                             })}
                         </div>
 
                         <div className="message-input">
-                            <input type="text" placeholder='Votre message ...' />
-                            <BiSend className='icon' />
+                            <input type="text" placeholder='Votre message ...' onChange={(e) => setMessage(e.target.value)} value={message} onKeyUp={(e) => {
+                                if (e.key === 'Enter') {
+                                    handleSendMessage()
+                                    setMessage('')
+                                }
+                            }} />
+                            <BiSend className='icon' onClick={handleSendMessage} />
                         </div>
                     </div>
                 </div>

@@ -561,6 +561,19 @@ a {
                 overflow: auto;
                 flex: 1;
 
+                &::-webkit-scrollbar {
+                    width: 6px;
+                }
+                   
+                &::-webkit-scrollbar-track {
+                    background: $light-gray-color;
+                }
+                   
+                &::-webkit-scrollbar-thumb {
+                    background-color: rgb(202, 202, 202);
+                    border-radius: 4px;
+                }
+
                 .discussions-list {
                     height: 100%;
                     overflow: auto;
@@ -588,7 +601,9 @@ a {
                     border: 1px solid rgba($main-gray-color, 0.2);
                     display: flex;
                     flex-direction: column;
-                    height: 100%;
+                    justify-content: space-between;
+                    max-height: 100%;
+                    overflow: hidden;
                     
                     header {
                         display: flex;
@@ -620,27 +635,49 @@ a {
                         flex: 1;
                         display: flex;
                         flex-direction: column;
+                        justify-content: flex-end;
                         gap: 1.4rem;
                         margin-top: 1.6rem;
+                        max-height: 440px;
+                        overflow: auto;
 
-                        article {
-                            border-radius: 4px;
-                            padding: 0.3rem 0.9rem;
-                            font-size: 0.85rem;
-                            font-weight: 500;
+                        .message-container {
+                            display: flex;
+                            align-items: flex-start;
+                            gap: 0.5rem;
                             max-width: 80%;
+
+                            article {
+                                border-radius: 4px;
+                                font-size: 0.85rem;
+                                font-weight: 500;
+                            }   
                             
-                                &.sender {
-                                    color: #fff;
-                                    align-self: flex-end;
+                            &.sender {
+                                color: #fff;
+                                align-self: flex-end;
+                                
+                                article {
+                                    padding: 0.3rem 0.9rem;
                                     background-color: $main-secondary-color;
                                 }
-
-                                &.receiver {
-                                    align-self: flex-start;
+                            }
+                            
+                            &.receiver {
+                                align-self: flex-start;
+                                color: $main-gray-color;
+                                
+                                article {
+                                    padding: 0.3rem 0.9rem;
                                     background-color: $light-gray-color;
-                                    color: $main-gray-color;
                                 }
+                            }
+
+                            img {
+                                height: 30px;
+                                aspect-ratio: 1/1;
+                                border-radius: 50%;
+                            }
                         }
                     }
 
@@ -654,7 +691,7 @@ a {
                         padding: 0.4rem 1.4rem;
                         border-radius: 6px;
                         font-weight: 500;
-                        margin-top: 1.4rem;
+                        margin-top: 1.6rem;
 
                             input {
                                 border: none;
