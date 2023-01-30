@@ -54,15 +54,16 @@ const PostAnnounce = () => {
                                 </article>
                             </div>
                         </div>
-                        <Input label='Tarif' noChevron />
+                        <Input label='Tarif' noChevron tarif />
                     </div>
 
                     <div className="double-form-control">
-                        <Input label='Téléphone' noChevron />
-                        <Input label='Email' noChevron />
+                        <Input label='Téléphone' noChevron phone />
+                        <Input label='Email' noChevron email />
                     </div>
 
-                    <Button btnText='Ajouter une localisation' outline />
+                    {/* <Button btnText='Ajouter une localisation' outline /> */}
+                    <Input label='Localisation' noChevron loc />
                 </article>
             </div>
 

@@ -7,7 +7,7 @@ const primarySchoolModules = ['Maths', 'History', 'Geography', 'Arabic', 'French
 const middleSchoolModules = ['Maths', 'Physics', 'Science', 'History & Geography', 'Arabic', 'French', 'English']
 const highSchoolModules = ['Maths', 'Physics', 'Science', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering' ,'History & Geography', 'Arabic', 'French', 'English', 'German', 'Spanish']
 
-const Input = ({label, arr, noChevron, textarea, wilayas, communes, placeHolder, category, cours, tarif, email, phone}) => {
+const Input = ({ label, arr, noChevron, textarea, wilayas, communes, placeHolder, category, cours, tarif, email, phone, loc }) => {
     const appContext = useContext(AppContext)
     
     const [open, setOpen] = useState(false)
@@ -46,6 +46,8 @@ const Input = ({label, arr, noChevron, textarea, wilayas, communes, placeHolder,
                     appContext.activeEmail(e.target.value)
                 } else if (phone) {
                     appContext.activePhone(e.target.value)
+                } else if (loc) {
+                    appContext.activeLoc(e.target.value)
                 }
             }} />
         ) : !textarea && !noChevron ? (

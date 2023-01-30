@@ -20,6 +20,8 @@ const AppContext = createContext({
     activeDescription: function() {},
     isOnline: null,
     setPlace: function() {},
+    loc: null,
+    activeLoc: function() {},
 })
 
 export function AppContextProvider({ children }) {
@@ -33,6 +35,7 @@ export function AppContextProvider({ children }) {
     const [email, setEmail] = useState(null)
     const [description, setDescription] = useState(null)
     const [isOnline, setIsOnline] = useState(null)
+    const [loc, setLoc] = useState(null)
 
     const activeId = (id, wilayaName) => {
         setId(id)
@@ -71,6 +74,10 @@ export function AppContextProvider({ children }) {
         setIsOnline(val)
     }
 
+    const activeLoc = (loc) => {
+        setLoc(loc)
+    }
+
     const context = {
         id,
         wilaya,
@@ -82,6 +89,7 @@ export function AppContextProvider({ children }) {
         email,
         description,
         isOnline,
+        loc,
         activeId,
         activeCommune,
         activeCategory,
@@ -91,6 +99,7 @@ export function AppContextProvider({ children }) {
         activeEmail,
         activeDescription,
         setPlace,
+        activeLoc,
     }
 
     return (
